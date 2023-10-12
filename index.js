@@ -11,6 +11,10 @@ const questions = [
     name: 'email'
 }, {
     type: 'input',
+    message: 'What is the name of the repository where you would like this README.md to be placed?',
+    name: 'repository'
+}, {
+    type: 'input',
     message: 'What is the title of your project?',
     name: 'projectTitle'
 }, {
@@ -46,7 +50,7 @@ const questions = [
 
 const generateReadme = ({projectTitle, description, installation, usage, credits, license, tests, contributing}) =>
  `
-# ${projectTitle}
+# <${projectTitle}>
 
 ## Description
     
@@ -69,7 +73,7 @@ ${usage}
     
 ## Credits
     
-${credits}
+Collaborated with ${credits}.
     
 ## License
     
@@ -77,11 +81,15 @@ ${license}
     
 ## How to Contribute
     
-Collaborated with ${contributing}.
+${contributing}
     
 ## Tests
 
 ${tests}
+
+## Questions
+
+If you have any additional questions, please refer to the my github profile at (https://github.com/${username}) or email me at ${email}. Thank you!
   `;
 
 inquirer
