@@ -16,7 +16,8 @@ This application could be used to quickly generate a custom and high-quality REA
 
 [Link to Video with README Generator walk-through]()
 
-![screenshot]()
+The generated README will look along the lines of this, with user's custom input entered:
+![screenshot](screenshot.png)
 
 
 ## Credits

@@ -11,10 +11,6 @@ const questions = [
     name: 'email'
 }, {
     type: 'input',
-    message: 'What is the name of the repository where you would like this README.md to be placed?',
-    name: 'repository'
-}, {
-    type: 'input',
     message: 'What is the title of your project?',
     name: 'projectTitle'
 }, {
@@ -34,9 +30,10 @@ const questions = [
     message: 'Who did you collaborate with on this project?',
     name: 'credits'
 }, {
-    type: 'input',
+    type: 'list',
     message: 'What kind of License do you want your project to have?',
     name: 'license',
+    choices: ['MIT License', 'Apache License 2.0', 'GNU General Public License v3.0', 'BSD 2-Clause Simplified License', 'Boost Software License 1.0', 'The Unlicense'],
 }, {
     type: 'input',
     message: 'What should the user know about contributing to the repo?',
@@ -48,9 +45,9 @@ const questions = [
 }
 ];
 
-const generateReadme = ({projectTitle, description, installation, usage, credits, license, tests, contributing}) =>
+const generateReadme = ({username, email, projectTitle, description, installation, usage, credits, license, tests, contributing}) =>
  `
-# <${projectTitle}>
+# ${projectTitle}
 
 ## Description
     
@@ -80,7 +77,7 @@ Collaborated with ${credits}.
 ${license}
     
 ## How to Contribute
-    
+
 ${contributing}
     
 ## Tests
@@ -89,7 +86,7 @@ ${tests}
 
 ## Questions
 
-If you have any additional questions, please refer to the my github profile at (https://github.com/${username}) or email me at ${email}. Thank you!
+If you have any additional questions, please refer to the my github profile at [${username}](https://github.com/${username}) or email me at ${email}. Thank you!
   `;
 
 inquirer
@@ -97,8 +94,9 @@ inquirer
 .then((data) => {
     const readmeContent = generateReadme(data);
     
-    fs.writeFile('README.md', readmeContent, (err) =>
+    fs.writeFile('./sandbox/README.md', readmeContent, (err) =>
     err ? console.log(err) : console.log('Successfully created your README.md!')
   );
 }); 
+
 
