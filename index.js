@@ -1,8 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateReadme = ({projectTitle, description, installation, usage, credits, license, tests, contributing})
-
 const questions = [
     {type: 'input',
     message: 'What is your Github username?',
@@ -46,14 +44,13 @@ const questions = [
 }
 ];
 
-
-function generateMarkdown(data) {
-    return `
-# ${data.title}
+const generateReadme = ({projectTitle, description, installation, usage, credits, license, tests, contributing}) =>
+ `
+# ${projectTitle}
 
 ## Description
     
-${data.description}
+${description}
     
 ## Table of Contents
        
@@ -64,38 +61,36 @@ ${data.description}
     
 ## Installation
     
-${data.installation}
+${installation}
     
 ## Usage
     
-${data.usage}
+${usage}
     
 ## Credits
     
-${data.credits}
+${credits}
     
 ## License
     
-${data.license}
+${license}
     
 ## How to Contribute
     
-Collaborated with ${data.contributing}.
+Collaborated with ${contributing}.
     
 ## Tests
 
-${data.tests}
+${tests}
   `;
-  }
 
-function init() {
-inquirer.prompt(questions)
+inquirer
+.prompt(questions)
 .then((data) => {
     const readmeContent = generateReadme(data);
     
-    fs.writeFile('README.md', JSON.stringify(data, null, '\t'), (err) =>
-    err ? console.log(err) : console.log('Success!')
+    fs.writeFile('README.md', readmeContent, (err) =>
+    err ? console.log(err) : console.log('Successfully created your README.md!')
   );
-}); }
+}); 
 
-init();
