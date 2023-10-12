@@ -5,15 +5,15 @@ const inquirer = require('inquirer');
 const questions = [
     {type: 'input',
     message: 'What is your Github username?',
-    name: 'username'
+    name: 'Username'
 }, {
     type: 'input',
     message: 'What is your email address?',
-    name: 'email'
+    name: 'Email'
 }, {
     type: 'input',
     message: 'What is your projects name?',
-    name: 'project'
+    name: 'Project Title'
 }, {
     type: 'input',
     message: 'Please write a description for your project',
@@ -25,11 +25,11 @@ const questions = [
 }, {
     type: 'input',
     message: 'What command should be run to install dependencies?',
-    name: 'install'
+    name: 'Installation'
 }, {
     type: 'input',
     message: 'What command should be run to run tests?',
-    name: 'test'
+    name: 'Tests'
 }, {
     type: 'input',
     message: 'What should the user know about the usage for this repo?',
