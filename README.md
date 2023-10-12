@@ -14,7 +14,7 @@ N/A
 
 This application could be used to quickly generate a custom and high-quality README file using the command-line. This saves the user time versus having to manually create a README file.
 
-[Link to Video with README Generator walk-through]()
+[Link to Video with README Generator walk-through](https://youtu.be/VdT9c-NZscs)
 
 The generated README will look along the lines of this, with user's custom input entered:
 ![screenshot](screenshot.png)
